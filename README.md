@@ -1,0 +1,2 @@
+# SQL-Studies
+SQL notes
