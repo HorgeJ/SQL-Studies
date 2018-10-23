@@ -153,3 +153,17 @@ ex: `SELECT * FROM customers WHERE name NOT LIKE "a%"`
 retrieves all customers where the name DOES NOT start with "a"
 
 ## **NULL** Values | Filtering Out Missing Values
+
+A field with a NULL value is a field with no value.
+
+If a field in a table is optional, it is possible to insert a new record or update a record without adding a value to this field. Then, the field will be saved with a NULL value.
+
+```
+SELECT <column> FROM <table> WHERE <column value> IS NULL;
+SELECT <column> FROM <table> WHERE <column value> IS NOT NULL;
+```
+
+ex: `SELECT name, address FROM customers WHERE address IS NULL;`
+retrieve name and address columns where the address value is NULL
+
+
