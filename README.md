@@ -167,3 +167,20 @@ ex: `SELECT name, address FROM customers WHERE address IS NULL;`
 retrieve name and address columns where the address value is NULL
 
 
+## **INSERT INTO** Keyword | Adding a ROW to a TABLE
+
+The INSERT INTO statement is used to insert new records in a table.
+
+```
+INSERT INTO <table> VALUES (<value 1>, <value 2>, <value 3>, etc...);
+```
+
+ex: `INSERT INTO movies VALUES (3, "Starman", "Science Fiction", 1984);`
+inserts the values 3, "Starman", "Science Fiction", 1984 into the movies table.
+
+```
+INSERT INTO (<table> <column 1>, <column 2>) VALUES (<value 1>, <value 2>);
+```
+
+ex: `INSERT INTO users (username, first_name, last_name) VALUES ("Bloodweiser", "Horge", "Jorge");`
+Inserts into the users table, the columns username, first_name abd last_name and gives them the corresponding values.
