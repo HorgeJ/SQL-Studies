@@ -1,11 +1,11 @@
 # SQL-Studies
 ## SQL study notes and example queries.
 
-## The SELECT statement
+## The **SELECT** statement
 
- The SELECT statement returns a result, or a set of results from a query.
+returns a result (column), or a set of results from a query.
  
- SELECT <column name> FROM <table name>
+ SELECT <column name> FROM <table name>;
   
   `SELECT email FROM users`
   
