@@ -65,5 +65,17 @@ ex: `SELECT name FROM users WHERE name != "Bob";`
 
 retrieves all rows where name does not equal "Bob"
 
+## Comparing Values
 
+comparing expressions can be done using relational operators
+
+```
+SELECT <columns> FROM <table> WHERE <column name> < <value>;
+SELECT <columns> FROM <table> WHERE <column name> <= <value>;
+SELECT <columns> FROM <table> WHERE <column name> > <value>;
+SELECT <columns> FROM <table> WHERE <column name> >= <value>;
+```
+
+ex: `SELECT item_name FROM products WHERE price < 19.99;`
+ex: `SELECT first_name, last_name FROM customers WHERE age >= 21;`
 
