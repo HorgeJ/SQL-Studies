@@ -6,7 +6,8 @@
 returns a result (column), or a set of results from a query.
  
  SELECT <column name> FROM <table name>;
-  
-  `SELECT email FROM users`
+ ```
+ SELECT email FROM users
+ ```
   
  returns all items from the *email* column from the *users* table.
