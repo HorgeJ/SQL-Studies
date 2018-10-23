@@ -50,7 +50,20 @@ will return a number equal to the total number of rows in the country table
 
 selects specific ROWS from a table
 
+`SELECT <columns> FROM <table> WHERE <condition>;`
+
 ex: `SELECT name, continent, region FROM coutry WHERE continent = europe;`
+ex: `SELECT title FROM books WHERE publish_date = "2018-10-23";`
 
 retrieves *name, continent and region* columns from the *country* table where the column *continent is equal to Europe*
+
+## Inequality Operator **!=**
+
+finds rows where the given value does not match
+
+ex: `SELECT name FROM users WHERE name != "Bob";`
+
+retrieves all rows where name does not equal "Bob"
+
+
 
