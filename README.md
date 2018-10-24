@@ -199,3 +199,33 @@ INSERT INTO <table> (<column 1>, <column 2>, ...)
 ```
 short cut for adding multiple rows without making individual queries to the database for each
 
+## **UPDATE** Statement | Updating Rows in a Table
+Used to modify existing records in a table
+
+```
+UPDATE <table> SET <column> = <value> WHERE <condition> ;
+```
+any number of condistions may be used and all matching rows will be updated
+
+
+ex: `UPDATE Customers SET Name = 'Alfred' WHERE CustomerID = 1;`
+
+This statement updates the customers name where the CustomerID field is equal to '1'
+
+ex:
+```
+UPDATE users SET password = "thisisabadidea" WHERE id = 3;
+UPDATE blog_posts SET view_count = 1923 WHERE title = "SQL is Awesome";
+```
+Updating multiple cloumns in a specific row
+
+```
+UPDATE <table> SET <column 1> = <value 1>, <column 2> = <value 2> WHERE <condition>;
+```
+
+ex:
+```
+UPDATE users SET entry_url = "/home", last_login = "2016-01-05" WHERE id = 329;
+UPDATE products SET status = "SOLD OUT", availability = "In 1 Week" WHERE stock_count = 0;
+```
+
