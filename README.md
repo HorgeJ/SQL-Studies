@@ -229,3 +229,17 @@ UPDATE users SET entry_url = "/home", last_login = "2016-01-05" WHERE id = 329;
 UPDATE products SET status = "SOLD OUT", availability = "In 1 Week" WHERE stock_count = 0;
 ```
 
+## The **DELETE** Statement | Removing Data
+Used to delete existing records in a table. ***WARNING***: Omiting the WHERE clause will delete all records in a table. ALWAYS HAVE A BACKUP!!!!
+
+```
+DELETE FROM <table> WHERE <condition>;
+```
+
+ex: 
+```
+DELETE FROM users WHERE email = "badEmail@funnymail.com";
+DELETE FROM books WHERE genre = "Mystery";
+DELETE FROM products WHERE stock_count = 0;
+```
+
