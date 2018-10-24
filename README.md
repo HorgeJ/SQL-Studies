@@ -9,10 +9,11 @@ retrieves a result (column), or a set of results from a query.
 ```
 
 ex: `SELECT email FROM users;`
-returns all items from the *email* column from the *users* table.
+
+retrieves all items from the *email* column from the *users* table.
 
     `SELECT first_name, last_name, address FROM customers;`
- returns all items from *multiple columns* from the *customers* table.
+ retrieves all items from *multiple columns* from the *customers* table.
  
  ## The **FROM** Statement
  
@@ -181,6 +182,20 @@ inserts the values 3, "Starman", "Science Fiction", 1984 into the movies table.
 ```
 INSERT INTO (<table> <column 1>, <column 2>) VALUES (<value 1>, <value 2>);
 ```
+INSERT INTO the columns we want to enter values into and then specify the values in that same order
+
 
 ex: `INSERT INTO users (username, first_name, last_name) VALUES ("Bloodweiser", "Horge", "Jorge");`
-Inserts into the users table, the columns username, first_name abd last_name and gives them the corresponding values.
+Inserts into the users table, the columns username, first_name and last_name and gives them the corresponding values.
+
+### Multiple Rows
+
+```
+INSERT INTO <table> (<column 1>, <column 2>, ...) 
+             VALUES 
+                    (<value 1>, <value 2>, ...),
+                    (<value 1>, <value 2>, ...),
+                    (<value 1>, <value 2>, ...);
+```
+short cut for adding multiple rows without making individual queries to the database for each
+
