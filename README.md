@@ -243,3 +243,23 @@ DELETE FROM books WHERE genre = "Mystery";
 DELETE FROM products WHERE stock_count = 0;
 ```
 
+## Transactions
+
+**Autocommit** - every statement you write gets saved to disk
+**Seeding** - populating a database for the first time.
+**Script file** - a file containing SQL statements.
+
+```
+BEGIN TRANSACTION;
+```
+This switches autocommit off and begins transaction
+
+```
+COMMIT;
+```
+This saves all the results of the statements after the start transaction to disk
+
+```
+ROLLBACK;
+```
+This resets the state of the database to before the beginning of the transaction
