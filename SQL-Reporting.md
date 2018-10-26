@@ -46,3 +46,11 @@ ex:
 SELECT * FROM books WHERE genre = "Fantasy" ORDER BY first_published ASC LIMIT 5;
 ```
 This query retrieves only the top 5 results
+
+## OFFSET Keyword | Paging Results
+
+* OFFSET excludes the first set of records.
+* OFFSET can only be used with an ORDER BY clause.
+* OFFSET with FETCH NEXT returns a defined window of records.
+* OFFSET with FETCH NEXT is great for building pagination support.
+
