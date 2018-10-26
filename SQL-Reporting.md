@@ -32,3 +32,17 @@ SELECT * FROM books ORDER BY    genre ASC,
 SELECT * FROM users ORDER BY    last_name ASC,
                                 first_name ASC;
 ```
+
+## LIMIT Keyword | Limiting the Number of Results
+The SQL SELECT LIMIT statement is used to retrieve records from one or more tables in a database and limit the number of records returned based on a limit value. 
+
+```
+SELECT <columns> FROM <table> LIMIT <# of rows>; 
+SELECT TOP <# of rows> <columns> FROM <table>; // MS SQL
+```
+
+ex:
+```
+SELECT * FROM books WHERE genre = "Fantasy" ORDER BY first_published ASC LIMIT 5;
+```
+This query retrieves only the top 5 results
