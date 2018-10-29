@@ -71,3 +71,25 @@ SELECT <columns> FROM <table> LIMIT <# of rows> OFFSET <# of skipped rows>;
  ex: `SELECT * FROM reviews ORDER BY rating DESC LIMIT 3;`
  This query retrieves top 3 highest rating reviews
  
+## FUNCTIONS
+Can manipulate the results of a query in diffrent ways and can be used in one or more parts of a query 
+
+*Definitions to remember
+* Keywords: Commands issued to a database. The data presented in queries is unaltered.
+* Operators: Performs comparisons and simple manipulation
+* Functions: Presents data differently through more complex manipulation
+
+```
+<function name>(<value or column>)
+```
+ex `UPPSER("Horge")` = "HORGE"
+
+## CONCAT FUNCTION CONCAT()
+Joins columns together
+
+```
+SELECT CONCAT(<value or column>, <value or column>, <value or column>) FROM <table>;
+```
+ex: `SELECT CONCAT(first_name, " ", last_name) AS "Full Name" FROM customers;`
+query retrieves the concatinated result of first_name and last_name as a whole stringaliased as "Full Name"
+
