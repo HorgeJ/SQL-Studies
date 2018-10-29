@@ -11,6 +11,7 @@ ex:
 SELECT name FROM books ORDER BY title ASC;
 SELECT product FROM products WHERE price > 9.99 ORDER BY price DESC;
 SELECT * FROM countries ORDER BY population DESC;
+SELECT * FROM reviews ORDER BY username;
 ```
 
 ## Ordering Rows: Multiple Criteria
@@ -67,4 +68,6 @@ SELECT <columns> FROM <table> LIMIT <# of rows> OFFSET <# of skipped rows>;
  ex: `SELECT * FROM books ORDER BY title LIMIT 10 OFFSET 10;`
  This query retrieves all columns from the books table sorted by title and only displays 10 srtarting from book 11.
  
+ ex: `SELECT * FROM reviews ORDER BY rating DESC LIMIT 3;`
+ This query retrieves top 3 highest rating reviews
  
