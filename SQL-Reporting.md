@@ -54,3 +54,17 @@ This query retrieves only the top 5 results
 * OFFSET with FETCH NEXT returns a defined window of records.
 * OFFSET with FETCH NEXT is great for building pagination support.
 
+```
+SELECT <columns> FROM <table> LIMIT <# of skipped rows>, <# of rows>;
+SELECT <columns> FROM <table> LIMIT <# of rows> OFFSET <# of skipped rows>;
+
+```
+ ### MS SQL & MySQL
+ ```
+ SELECT <columns> FROM <table> OFFSET <skipped rows> ROWS FETCH NEXT <# of rows> ROWS ONLY;
+ ```
+ 
+ ex: `SELECT * FROM books ORDER BY title LIMIT 10 OFFSET 10;`
+ This query retrieves all columns from the books table sorted by title and only displays 10 srtarting from book 11.
+ 
+ 
