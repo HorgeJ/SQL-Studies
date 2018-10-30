@@ -82,7 +82,7 @@ Can manipulate the results of a query in diffrent ways and can be used in one or
 ```
 <function name>(<value or column>)
 ```
-ex `UPPSER("Horge")` = "HORGE"
+ex `UPPER("Horge")` = "HORGE"
 
 ## CONCAT FUNCTION CONCAT()
 Joins columns together
@@ -93,3 +93,41 @@ SELECT CONCAT(<value or column>, <value or column>, <value or column>) FROM <tab
 ex: `SELECT CONCAT(first_name, " ", last_name) AS "Full Name" FROM customers;`
 query retrieves the concatinated result of first_name and last_name as a whole stringaliased as "Full Name"
 
+## LENGTH function
+returns int length of string
+
+```
+SELECT LENGTH(<value or column>) FROM <tables>;
+```
+
+ex:
+```
+SELECT username, LENGTH(username) AS "Length of Name" FROM customers
+ORDER BY "Length of Name" DESC
+LIMIT 1;
+```
+returns the int length of the longest username string in the customers table.
+
+ex: `SELECT username AS length FROM customers WHERE LENGTH(username) < 7`
+returns all usernames who length is less than 7.
+
+## TEXT CASE Functions
+Changes the case of a string
+
+Could be used to check against case insensitivity
+```
+SELECT UPPER(<value or column>) FROM <table>;
+SELECT LOWER(<value or column>) FROM <table>;
+```
+ex: `SELECT UPPER(zip) FROM addresses WHERE country = "UK";`
+retreives all zip codes from the address table where country is equal to "UK", zips are in all UPPER case
+
+## EXCERPTS From Text
+create smaller strings from larger piece of text you can use the SUBSTR() funciton or the substring function.
+
+```
+SELECT SUBSTR(<value or column>, <start>, <length>) FROM <table>;
+```
+
+ex: `SELECT SUBSTR(first_name, 1, 1) AS initial, last_name FROM customers;`
+retrieves the first initial and last name from the customers table.
