@@ -1,3 +1,6 @@
+# Reporting Text
+Manipulating text results with functions
+
 ## ORDER BY Keyword | Organizing Information by Rows: Single Criteria
 The ORDER BY keyword is used to sort the result-set in ascending or descending order.
 
@@ -143,7 +146,7 @@ ex: `SELECT REPLACE(email, "@", "<at>") AS obfuscated_email FROM customers;`
 returns the email string with the "@" symbol replcaed by "<at>" to look like 'email<at>gmail.com
 
 
-## REPORTING PRACTICE QUERIES
+## REPORTING TEXT PRACTICE QUERIES
 ex:
 -- Find the actor with the longest name
 -- Add the username after the review. e.g. "That was a cool movie - Horge"
@@ -159,3 +162,6 @@ SELECT REPLACE(name, SUBSTR(name, 10, 15), "...") AS truncated
   FROM actors 
   WHERE LENGTH(name) > 10;
 ```
+
+# Reporting Numbers
+Manipulating numeric reults with functions
