@@ -131,3 +131,31 @@ SELECT SUBSTR(<value or column>, <start>, <length>) FROM <table>;
 
 ex: `SELECT SUBSTR(first_name, 1, 1) AS initial, last_name FROM customers;`
 retrieves the first initial and last name from the customers table.
+
+## REPLACING text
+replaces peiece of a string or text in a larger body of text using the REPLACE() function
+
+```
+SELECT REPLACE(<original value or column>, <target string>, <replacement string>) FROM <table>;
+```
+
+ex: `SELECT REPLACE(email, "@", "<at>") AS obfuscated_email FROM customers;`
+returns the email string with the "@" symbol replcaed by "<at>" to look like 'email<at>gmail.com
+
+
+## REPORTING PRACTICE QUERIES
+ex:
+-- Find the actor with the longest name
+-- Add the username after the review. e.g. "That was a cool movie - Horge"
+-- Uppercase all movie titles
+--- In all of the reviews, replace the text "public relations" with "PR"
+--- From the actors, truncate names greater than 10 charactor with ... e.g. William Wo...
+```
+SELECT name FROM actors ORDER BY LENGTH(name) DESC LIMIT 1;
+SELECT review || " - " || username FROM reviews;
+SELECT UPPER(title) FROM movies;
+SELECT REPLACE(review, "public relations", "PR") FROM reviews;
+SELECT REPLACE(name, SUBSTR(name, 10, 15), "...") AS truncated 
+  FROM actors 
+  WHERE LENGTH(name) > 10;
+```
