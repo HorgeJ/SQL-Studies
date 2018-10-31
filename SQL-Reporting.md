@@ -197,3 +197,50 @@ ex: Using the Library Database
 SELECT genre, COUNT(*) AS genre_count FROM books GROUP BY genre;
 SELECT COUNT(DISTINCT genre) AS total_genres FROM books;
 ```
+
+## The Grand Total | SUM Function
+The SUM() function returns the total sum of a numeric column.
+The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions. (like WHERE keyword)
+
+```
+SELECT SUM(<numeric column>) FROM <table>;
+SELECT SUM(<numeric column>) AS <alias> FROM <table>
+                                        GROUP BY <another column>
+                                        HAVING <alias> <operator> <value>;
+```
+
+ex: Using Orders table
+* Find the customers who have spent more than $250
+```
+SELECT SUM(cost) AS total_spend, user_id FROM orders
+                                         GROUP BY user_id
+                                         HAVING total_spend > 250
+                                         ORDER BY total_spend DESC
+```
+
+ex: Using Movie database
+* Write a query that totals up all ratings for the movie "Starman" (id = 6) in the reviews table and alias it.
+
+```
+SELECT SUM(rating) AS starman_total_ratings FROM reviews WHERE movie_id = 6;
+```
+
+## Calculating Averages | AVG() Function
+The AVG() function returns the average value of a numeric column.
+
+```
+SELECT AVG(<numeric column>) FROM <table>;
+SELECT AVG(<numeric column>) FROM <table> GROUP BY <another column>;
+```
+
+ex:
+* Retrieve the average spend per customer and order from highest to lowest
+```
+SELECT AVG(cost) AS average, user_id FROM orders GROUP BY user_id ORDER BY average DESC;
+```
+ex:
+* retrieve the average rating for "Starman"
+```
+SELECT AVG(rating) AS average_rating FROM reviews WHERE movie_id = 6;
+```
+
