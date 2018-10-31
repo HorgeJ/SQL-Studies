@@ -163,6 +163,7 @@ SELECT REPLACE(name, SUBSTR(name, 10, 15), "...") AS truncated
   WHERE LENGTH(name) > 10;
 ```
 
+
 # Reporting Numbers
 Manipulating numeric reults with functions
 
@@ -255,3 +256,9 @@ SELECT MAX(<numeric column>) FROM <table> GROUP BY <other column>;
 SELECT MIN(<numeric column>) FROM <table>;
 SELECT MIN(<numeric column>) FROM <table> GROUP BY <other column>;
 ```
+ex: Using reviews table
+* Calculate the minimum and max of the starman ratings
+```
+SELECT MIN(rating) AS star_min, MAX(rating) AS star_max FROM reviews WHERE movie_id = 6;
+```
+
