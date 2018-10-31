@@ -190,3 +190,10 @@ The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, 
 SELECT <column> FROM <table> GROUP BY <column with comon value>;
 ```
 
+ex: Using the Library Database
+* Count all books in each genre. Include the genre column first and genre_count as second column of information. USe the books table
+* Query to count all UNIQUE genres in the books table. Aliase to total_genres
+```
+SELECT genre, COUNT(*) AS genre_count FROM books GROUP BY genre;
+SELECT COUNT(DISTINCT genre) AS total_genres FROM books;
+```
