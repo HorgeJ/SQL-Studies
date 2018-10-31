@@ -262,3 +262,37 @@ ex: Using reviews table
 SELECT MIN(rating) AS star_min, MAX(rating) AS star_max FROM reviews WHERE movie_id = 6;
 ```
 
+## Arithmetic on Numeric Types | * / + -
+
+* `*` Multiply
+* `/` Divide
+* `+` Add
+* `-` Subtract
+
+```
+SELECT <numeric column> <arithmetic  operator> <numeric value> FROM <table>;
+```
+
+The ROUND() function rounds a number to a specified number of decimal places.
+```
+SELECT ROUND(<decimal value>, <number of decimal places>) AS <alias>;
+```
+ex: Using a products table
+* Write a query that returns the product name and price in Pounds Sterling (GBP). The current exchange rate is 1.4 USD to every 1 GBP. Alias the calculated price to price_gbp. Round to two decimal places.
+
+```
+SELECT name, ROUND(price / 1.4, 2) AS price_gbp FROM products;
+```
+
+## EXAMPLES [Using Actors, Movies and Reviews tables]
+
+* Count all the movies in the Musical genre
+* Calculate the average rating given by a user across all movies
+* Calculate the average rating for each movie and round it to one decimal place
+* Calculate the minimum and maximum rating for every movie
+```
+SELECT COUNT(*) FROM movies;
+SELECT AVG(rating) AS avg_user_rating, username FROM reviews GROUP BY username;
+SELECT ROUND(AVG(rating),1) AS avg_movie_rating, username FROM reviews GROUP BY movie_id;
+SELECT MIN(rating) AS min_rating, MAX(rating) AS max_rating, movie_id FROM reviews GROUP BY movie_id;
+```
