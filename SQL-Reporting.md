@@ -165,3 +165,28 @@ SELECT REPLACE(name, SUBSTR(name, 10, 15), "...") AS truncated
 
 # Reporting Numbers
 Manipulating numeric reults with functions
+
+## COUNT() Function
+COUNT() function is used to count non NULL rows
+It can also be used to count unique entries using the *DISTINCT* keyword
+
+```
+SELECT (*) FROM <table>;
+SELECT COUNT(DISTINCT<column>) FROM <table>;
+```
+
+ex:
+* Retreive count of books with sci-fi genre and alias the count
+* Count the amount of books by J.K. Rowling in the books table, alias the count
+```
+SELECT COUNT(genre) AS scifi_book_count FROM books WHERE genre = "Science Fiction";
+SELECT COUNT(author) AS jk_book_count FROM books WHERE author = "J>K> Rowling";
+```
+
+## Counting Groups of Rows | GROUP BY Keyword
+The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
+
+```
+SELECT <column> FROM <table> GROUP BY <column with comon value>;
+```
+
