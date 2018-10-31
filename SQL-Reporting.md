@@ -244,3 +244,14 @@ ex:
 SELECT AVG(rating) AS average_rating FROM reviews WHERE movie_id = 6;
 ```
 
+## MIN and MAX values | MAX() & MIN()
+The MIN() function returns the smallest value of the selected column.
+The MAX() function returns the largest value of the selected column.
+
+```
+SELECT MAX(<numeric column>) FROM <table>;
+SELECT MAX(<numeric column>) FROM <table> GROUP BY <other column>;
+
+SELECT MIN(<numeric column>) FROM <table>;
+SELECT MIN(<numeric column>) FROM <table> GROUP BY <other column>;
+```
