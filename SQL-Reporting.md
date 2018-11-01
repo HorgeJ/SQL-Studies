@@ -296,3 +296,25 @@ SELECT AVG(rating) AS avg_user_rating, username FROM reviews GROUP BY username;
 SELECT ROUND(AVG(rating),1) AS avg_movie_rating, username FROM reviews GROUP BY movie_id;
 SELECT MIN(rating) AS min_rating, MAX(rating) AS max_rating, movie_id FROM reviews GROUP BY movie_id;
 ```
+
+# DATES | Principles
+Different SQL databeses handle dates differently. Refer to your version of SQL's documentation for more information.
+
+## Todays Date and Time
+Various ways to work with current date and time in on different databases
+
+### MS SQL
+* Current Date: `CONVERT(date, GETDATE())`
+* Current Time: `CONVERT(time, GETTIME())`
+* Current date time: `GETDATE();`
+
+### SQLite
+* Current Date: `DATE("now")`
+* Current Time: `TIME("now")`
+* Current date time: `DATETIME("NOW")`
+
+### MySQL
+* Current Date: `CURDATE()`
+* Current Time: `CURTIME()`
+* Current date time: `NOW()`
+
