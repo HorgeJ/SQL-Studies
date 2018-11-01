@@ -343,6 +343,12 @@ SELECT title, STRFTIME("%m/%Y", date_released) AS month_year_released FROM movie
 ## Example Queries
 
 * Find all loans that are overdue.
+* Find all loans that are due back this week
+* Format dates in all the loans table in the UK format without the year. For example, April 1st is 01/04.
 
 ```
+SELECT * FROM loans WHERE return_by < DATE("NOW") AND returned_on IS NULL;
+SELECT * FROM loans WHERE return_by BETWEEN DATE("NOW") AND DATE ("NOW", "+6 days") AND returned_on IS NULL;
+SELECT book_id, STRFTIME("%d/%m", loaned_on), STRFTIME("%d/%m", return_by), STRFTIME("%d/%m", returned_on) FROM loans;
+
 ```
