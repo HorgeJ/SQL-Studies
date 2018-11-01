@@ -340,3 +340,9 @@ ex: Write a query that returns the title first and the month and year it was rel
 ```
 SELECT title, STRFTIME("%m/%Y", date_released) AS month_year_released FROM movies;
 ```
+## Example Queries
+
+* Find all loans that are overdue.
+
+```
+```
