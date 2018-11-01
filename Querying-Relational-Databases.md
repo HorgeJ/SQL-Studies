@@ -10,3 +10,5 @@ A relational database is a set of formally described tables from which data can 
 the process of restructuring a relational database in accordance with a series of so-called normal forms in order to reduce data redundancy and improve data integrity.
 
 Explained further at this [link](https://www.studytonight.com/dbms/database-normalization.php)
+
+## Set Theory
