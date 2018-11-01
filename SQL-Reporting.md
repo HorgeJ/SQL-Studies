@@ -318,7 +318,14 @@ Various ways to work with current date and time in on different databases
 * Current Time: `CURTIME()`
 * Current date time: `NOW()`
 
-ex: get all orders placed on todays date
+ex: Count the total number of orders that were ordered today and have the status of 'shipped'. Alias it to shipped_today.
 ```
-SELECT * FROM orders WHERE status = "placed" AND ordered_on = DATE("NOW")
+SELECT COUNT(*) AS shipped_today FROM orders WHERE status = "shipped" AND ordered_on = DATE("NOW");
 ```
+
+ex: Count the total number of orders that were ordered yesterday and have the status of 'shipped'. Alias it to ordered_yesterday_and_shipped.
+```
+SELECT COUNT(*) AS ordered_yesterday_and_shipped FROM orders WHERE ordered_on = DATE("NOW", "-1 day") AND status = "shipped";
+```
+
+
