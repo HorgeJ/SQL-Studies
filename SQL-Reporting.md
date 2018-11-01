@@ -328,4 +328,15 @@ ex: Count the total number of orders that were ordered yesterday and have the st
 SELECT COUNT(*) AS ordered_yesterday_and_shipped FROM orders WHERE ordered_on = DATE("NOW", "-1 day") AND status = "shipped";
 ```
 
+## Formatting Dates | STRFTIME()
+The SQLite strftime() function returns the date formatted according to the format string specified in argument first. The second parameter is used to mention the time string and followed by one or more modifiers can be used to get a different result. 
 
+```
+strftime(<format string>, <time string>, <modifier>);
+```
+ex: `SELECT *, STRFTIME("%d/%m/%Y", ordered_on) AS UK_date FROM orders;`
+
+ex: Write a query that returns the title first and the month and year it was released alias as month_year_released. Dates should look like "04/1983" for April 1983. Use the movies table.
+```
+SELECT title, STRFTIME("%m/%Y", date_released) AS month_year_released FROM movies;
+```
