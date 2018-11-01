@@ -309,8 +309,8 @@ Various ways to work with current date and time in on different databases
 * Current date time: `GETDATE();`
 
 ### SQLite
-* Current Date: `DATE("now")`
-* Current Time: `TIME("now")`
+* Current Date: `DATE("NOW")`
+* Current Time: `TIME("NOW")`
 * Current date time: `DATETIME("NOW")`
 
 ### MySQL
@@ -318,3 +318,7 @@ Various ways to work with current date and time in on different databases
 * Current Time: `CURTIME()`
 * Current date time: `NOW()`
 
+ex: get all orders placed on todays date
+```
+SELECT * FROM orders WHERE status = "placed" AND ordered_on = DATE("NOW")
+```
