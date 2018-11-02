@@ -23,3 +23,11 @@ Set theory is a branch of mathematical logic that studies sets, which informally
 * **UNION**: Both sets together
 * **Except**: Exclusive groups (Remove Union)
 
+## Unique Keys
+Keys are very important part of a Relational database model. They are used to establish and identify relationships between tables and also to uniquely identify any record or row of data inside a table. A Key can be a single attribute or a group of attributes, where the combination may act as a key.
+
+### Types of Keys
+* Unique Keys: specifically configured so that no value can be repeated within it
+* Primary Keys: Can never be null and only one per table. Can't be modified. Cant be NULL.
+* Foreign Keys:
+
