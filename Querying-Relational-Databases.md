@@ -39,3 +39,17 @@ In a one-to-many relationship, one record in a table can be associated with one 
 In this example the primary key field in the Customers table, Customer ID, is designed to contain unique values. The foreign key field in the Orders table, Customer ID, is designed to allow multiple instances of the same value.
 
 This relationship returns related records when the value in the Customer ID field in the Orders table is the same as the value in the Customer ID field in the Customers table.
+
+* remember that the foreign key usually goes on the many side. This helps remember which key is in what table
+
+### Many-to-Many Relationships
+A many-to-many relationship refers to a relationship between tables in a database when a parent row in one table contains several child rows in the second table, and vice versa.
+
+![many-to-many](https://fmhelp.filemaker.com/help/17/fmp/en/FMP_Help/images/relational.07.06.1.png)
+
+A typical example of a many-to many relationship is one between students and classes. A student can register for many classes, and a class can include many students.
+
+The following example includes a Students table, which contains a record for each student, and a Classes table, which contains a record for each class. A join table, Enrollments, creates two one-to-many relationships—one between each of the two tables.
+
+The primary key Student ID uniquely identifies each student in the Students table. The primary key Class ID uniquely identifies each class in the Classes table. The Enrollments table contains the foreign keys Student ID and Class ID.
+
