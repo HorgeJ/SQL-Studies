@@ -32,3 +32,5 @@ Keys are very important part of a Relational database model. They are used to es
 * Foreign Keys: Foreign Keys are a column, or columns, that relate records back to the primary key in another table.
 
 ## One-to-Many Relationships
+
+[logo]: https://fmhelp.filemaker.com/help/17/fmp/en/FMP_Help/images/relational.07.04.2.png
