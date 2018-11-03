@@ -33,4 +33,4 @@ Keys are very important part of a Relational database model. They are used to es
 
 ## One-to-Many Relationships
 
-[logo]: https://fmhelp.filemaker.com/help/17/fmp/en/FMP_Help/images/relational.07.04.2.png
+![one-to-many](https://fmhelp.filemaker.com/help/17/fmp/en/FMP_Help/images/relational.07.04.2.png)
