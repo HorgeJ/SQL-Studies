@@ -32,5 +32,10 @@ Keys are very important part of a Relational database model. They are used to es
 * Foreign Keys: Foreign Keys are a column, or columns, that relate records back to the primary key in another table.
 
 ## One-to-Many Relationships
+In a one-to-many relationship, one record in a table can be associated with one or more records in another table. For example, each customer can have many sales orders.
 
 ![one-to-many](https://fmhelp.filemaker.com/help/17/fmp/en/FMP_Help/images/relational.07.04.2.png)
+
+In this example the primary key field in the Customers table, Customer ID, is designed to contain unique values. The foreign key field in the Orders table, Customer ID, is designed to allow multiple instances of the same value.
+
+This relationship returns related records when the value in the Customer ID field in the Orders table is the same as the value in the Customer ID field in the Customers table.
