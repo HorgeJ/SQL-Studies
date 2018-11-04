@@ -62,3 +62,17 @@ A JOIN clause is used to combine rows from two or more tables, based on a relate
 
 ![Join](https://image-proxy-cdn.teamtreehouse.com/8e4d3514a77b2bf0f9f8db0f065f86bfa136919a/687474703a2f2f74726565686f7573652d70726f6a6563742d646f776e6c6f6164732e73332e616d617a6f6e6177732e636f6d2f5175657279696e6752656c6174696f6e616c4461746162617365732f636f6d706c65785f76656e6e2e706e67)
 
+#### Inner Join
+The INNER JOIN keyword selects records that have matching values in both tables. Most common SQL Join
+
+```
+SELECT <columns> FROM <table1> INNER JOIN <table2> ON <equality criteria> WHERE <search criteria>
+```
+
+ex: Retrieve all Chevy models using make and model tables
+```
+SELECT mk.MakeName, md.ModelName FROM make AS mk 
+  INNER JOIN model AS md ON mk.MakeID = md.MakeID
+  WHERE mk.MakeName = "Chevy";
+```
+retrieves the MakeName from the make table, ModelName FROM the make table aliased as mk and model table aliased as md when the mk.MakeID from Make table matches the md.MakeID from the Model table amd returns only the ones where NameName = "chevy"
