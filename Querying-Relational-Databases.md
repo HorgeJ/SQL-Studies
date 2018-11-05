@@ -83,3 +83,7 @@ An outer join, unmatched rows in one or both tables can be returned. There are a
 * LEFT JOIN returns only unmatched rows from the left table.
 * RIGHT JOIN returns only unmatched rows from the right table.
 * FULL OUTER JOIN returns unmatched rows from both tables.
+
+![Joins Chart](https://community.modeanalytics.com/images/intermediate/visual-join.png)
+
+
