@@ -113,21 +113,21 @@ SELECT mk.MakeID, COUNT(md.ModelID) AS NumberOfModels FROM make AS mk
 
 ```
 SELECT patrons.first_name, patrons.email, loans.return_by, loans.returned_on
-  FROM patrons
-  INNER JOIN loans ON patrons.id = loans.patron_id
-  WHERE loans.return_by < DATE("NOW") AND returned_on IS NULL
-  GROUP BY patrons.first_name;
+  	FROM patrons
+  	INNER JOIN loans ON patrons.id = loans.patron_id
+  	WHERE loans.return_by < DATE("NOW") AND returned_on IS NULL
+  	GROUP BY patrons.first_name;
   
 SELECT patrons.first_name, patrons.email
-  FROM patrons
-  LEFT OUTER JOIN loans ON patrons.id = loans.patron_id
-  WHERE loans.patron_id IS NULL;
+  	FROM patrons
+  	LEFT OUTER JOIN loans ON patrons.id = loans.patron_id
+  	WHERE loans.patron_id IS NULL;
   
 SELECT books.title, patrons.first_name || " " || patrons.last_name AS full_name, patrons.email, loans.loaned_on, loans.return_by, loans.returned_on
-  FROM patrons
-  INNER JOIN loans ON patrons.id = loans.patron_id
-  INNER JOIN books ON loans.book_id = books.id
-  WHERE books.id = loans.book_id;
+  	FROM patrons
+  	INNER JOIN loans ON patrons.id = loans.patron_id
+  	INNER JOIN books ON loans.book_id = books.id
+  	WHERE books.id = loans.book_id;
 ```
 
 ## MORE EXERCISES W/ JOIN
@@ -135,16 +135,27 @@ SELECT books.title, patrons.first_name || " " || patrons.last_name AS full_name,
 * In a car database there is a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. For all cars in the database, show Model Name, VIN and Sticker Price in one result set.
 * In a car database there is a Make table with columns, MakeID and MakeName, a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. For all cars in the database, show Make Name, Model Name, VIN and Sticker Price from the Model and Car tables in one result set.
 * In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber, StreetAddress, City, State and ZipCode. Show the First and Last Name of each sales rep along with SaleAmount from both the SalesRep and Sale tables in one result set.
-
+* In a car database there is a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. Show all Model names from the Model table along with VIN from the Car table. Make sure models that aren’t in the Car table still show in the results!
+* In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber, StreetAddress, City, State and ZipCode. Show all SaleDate, SaleAmount, and SalesRep First and Last name from Sale and SalesRep. Make sure that all Sales appear in results even if there is no SalesRep associated to the sale.
 ```
 SELECT m.ModelName, c.VIN, c.StickerPrice
 	FROM model AS m
-  INNER JOIN car AS c ON m.modelID = c.ModelID;
+  	INNER JOIN car AS c ON m.modelID = c.ModelID;
   
  SELECT Make.MakeName, Model.ModelName, Car.VIN, Car.StickerPrice
-		FROM Make
-    INNER JOIN Model ON Make.MakeID = Model.MakeID
-    INNER JOIN Car ON Model.ModelID = Car.ModelID;
+	FROM Make
+    	INNER JOIN Model ON Make.MakeID = Model.MakeID
+    	INNER JOIN Car ON Model.ModelID = Car.ModelID;
     
-   
+ SELECT SalesRep.FirstName, SalesRep.LastName, Sale.SaleAmount
+ 	FROM SalesRep
+    	INNER JOIN Sale ON SalesRep.SalesRepID = Sale.SalesRepID; 
+	
+SELECT Model.ModelName, Car.VIN
+	FROM Model
+  	LEFT OUTER JOIN car ON Model.ModelID = Car.ModelID;
+	
+SELECT Sale.SaleDate, Sale.SaleAmount, SalesRep.FirstName, SalesRep.LastName
+	FROM Sale
+  	LEFT OUTER JOIN SalesRep ON Sale.SalesRepID = SalesRep.SalesRepID;
 ```
