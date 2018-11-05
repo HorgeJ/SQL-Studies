@@ -84,6 +84,17 @@ An outer join, unmatched rows in one or both tables can be returned. There are a
 * RIGHT JOIN returns only unmatched rows from the right table.
 * FULL OUTER JOIN returns unmatched rows from both tables.
 
+```
+SELECT <columns> FROM <table1>
+  LEFT OUTER JOIN <table2> ON <equality criteria>
+  WHERE <search criteria>...
+```
+
 ![Joins Chart](https://community.modeanalytics.com/images/intermediate/visual-join.png)
 
+```
+SELECT mk.MakeID, COUNT(md.ModelID) AS NumberOfModels FROM make AS mk
+  LEFT OUTER JOIN model AS md ON.mk.MakeID = md.ModelID
+  GROUP BY mk.MakeName;
+```
 
