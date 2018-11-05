@@ -66,12 +66,16 @@ A JOIN clause is used to combine rows from two or more tables, based on a relate
 The INNER JOIN keyword selects records that have matching values in both tables. Most common SQL Join
 
 ```
-SELECT <columns> FROM <table1> INNER JOIN <table2> ON <equality criteria> WHERE <search criteria>
+SELECT <columns> 
+  FROM <table1> 
+  INNER JOIN <table2> ON <equality criteria> 
+  WHERE <search criteria>
 ```
 
 ex: Retrieve all Chevy models using make and model tables
 ```
-SELECT mk.MakeName, md.ModelName FROM make AS mk 
+SELECT mk.MakeName, md.ModelName 
+  FROM make AS mk 
   INNER JOIN model AS md ON mk.MakeID = md.MakeID
   WHERE mk.MakeName = "Chevy";
 ```
@@ -85,7 +89,8 @@ An outer join, unmatched rows in one or both tables can be returned. There are a
 * FULL OUTER JOIN returns unmatched rows from both tables.
 
 ```
-SELECT <columns> FROM <table1>
+SELECT <columns> 
+  FROM <table1>
   LEFT OUTER JOIN <table2> ON <equality criteria>
   WHERE <search criteria>...
 ```
@@ -98,3 +103,48 @@ SELECT mk.MakeID, COUNT(md.ModelID) AS NumberOfModels FROM make AS mk
   GROUP BY mk.MakeName;
 ```
 
+![SQL Joins](https://image-proxy-cdn.teamtreehouse.com/3e9f9c2f5849959e5f2f01e71c16542b4999ae89/687474703a2f2f7777772e636f646570726f6a6563742e636f6d2f4b422f64617461626173652f56697375616c5f53514c5f4a6f696e732f56697375616c5f53514c5f4a4f494e535f6f7269672e6a7067)
+
+## Join Exercises: using books, loans and patrons tables
+
+* Use a JOIN to select all patrons with outstanding books. Select their first name and email address. (i've also included a couple extra columns for verification)
+ * Use a JOIN to find out which patrons haven't had any loans. Select their first name and email address.
+ * Create a report that shows the title of the book, first and last name of the patron, email and all date fields of the loan.
+
+```
+SELECT patrons.first_name, patrons.email, loans.return_by, loans.returned_on
+  FROM patrons
+  INNER JOIN loans ON patrons.id = loans.patron_id
+  WHERE loans.return_by < DATE("NOW") AND returned_on IS NULL
+  GROUP BY patrons.first_name;
+  
+SELECT patrons.first_name, patrons.email
+  FROM patrons
+  LEFT OUTER JOIN loans ON patrons.id = loans.patron_id
+  WHERE loans.patron_id IS NULL;
+  
+SELECT books.title, patrons.first_name || " " || patrons.last_name AS full_name, patrons.email, loans.loaned_on, loans.return_by, loans.returned_on
+  FROM patrons
+  INNER JOIN loans ON patrons.id = loans.patron_id
+  INNER JOIN books ON loans.book_id = books.id
+  WHERE books.id = loans.book_id;
+```
+
+## MORE EXERCISES W/ JOIN
+
+* In a car database there is a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. For all cars in the database, show Model Name, VIN and Sticker Price in one result set.
+* In a car database there is a Make table with columns, MakeID and MakeName, a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. For all cars in the database, show Make Name, Model Name, VIN and Sticker Price from the Model and Car tables in one result set.
+* In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber, StreetAddress, City, State and ZipCode. Show the First and Last Name of each sales rep along with SaleAmount from both the SalesRep and Sale tables in one result set.
+
+```
+SELECT m.ModelName, c.VIN, c.StickerPrice
+	FROM model AS m
+  INNER JOIN car AS c ON m.modelID = c.ModelID;
+  
+ SELECT Make.MakeName, Model.ModelName, Car.VIN, Car.StickerPrice
+		FROM Make
+    INNER JOIN Model ON Make.MakeID = Model.MakeID
+    INNER JOIN Car ON Model.ModelID = Car.ModelID;
+    
+   
+```
