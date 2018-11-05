@@ -10,7 +10,7 @@ The ORDER BY keyword sorts the records in ascending order by default. To sort th
 SELECT <col1>, <col2>, ... FROM <table> ORDER BY <col1>, <col2>, ... ASC|DESC;
 ```
 ex:
-```
+```SQL
 SELECT name FROM books ORDER BY title ASC;
 SELECT product FROM products WHERE price > 9.99 ORDER BY price DESC;
 SELECT * FROM countries ORDER BY population DESC;
@@ -26,7 +26,7 @@ SELECT * FROM <table name> ORDER BY <column> [ASC|DESC],
 ```
 
 ex:
-```
+```SQL
 SELECT * FROM books ORDER BY    genre ASC, 
                                 title ASC;
 
@@ -46,7 +46,7 @@ SELECT TOP <# of rows> <columns> FROM <table>; // MS SQL
 ```
 
 ex:
-```
+```SQL
 SELECT * FROM books WHERE genre = "Fantasy" ORDER BY first_published ASC LIMIT 5;
 ```
 This query retrieves only the top 5 results
@@ -104,7 +104,7 @@ SELECT LENGTH(<value or column>) FROM <tables>;
 ```
 
 ex:
-```
+```SQL
 SELECT username, LENGTH(username) AS "Length of Name" FROM customers
 ORDER BY "Length of Name" DESC
 LIMIT 1;
@@ -153,7 +153,8 @@ ex:
 -- Uppercase all movie titles
 --- In all of the reviews, replace the text "public relations" with "PR"
 --- From the actors, truncate names greater than 10 charactor with ... e.g. William Wo...
-```
+
+```SQL
 SELECT name FROM actors ORDER BY LENGTH(name) DESC LIMIT 1;
 SELECT review || " - " || username FROM reviews;
 SELECT UPPER(title) FROM movies;
@@ -179,7 +180,8 @@ SELECT COUNT(DISTINCT<column>) FROM <table>;
 ex:
 * Retreive count of books with sci-fi genre and alias the count
 * Count the amount of books by J.K. Rowling in the books table, alias the count
-```
+
+```SQL
 SELECT COUNT(genre) AS scifi_book_count FROM books WHERE genre = "Science Fiction";
 SELECT COUNT(author) AS jk_book_count FROM books WHERE author = "J>K> Rowling";
 ```
@@ -194,7 +196,8 @@ SELECT <column> FROM <table> GROUP BY <column with comon value>;
 ex: Using the Library Database
 * Count all books in each genre. Include the genre column first and genre_count as second column of information. USe the books table
 * Query to count all UNIQUE genres in the books table. Aliase to total_genres
-```
+
+```SQL
 SELECT genre, COUNT(*) AS genre_count FROM books GROUP BY genre;
 SELECT COUNT(DISTINCT genre) AS total_genres FROM books;
 ```
@@ -212,7 +215,8 @@ SELECT SUM(<numeric column>) AS <alias> FROM <table>
 
 ex: Using Orders table
 * Find the customers who have spent more than $250
-```
+
+```SQL
 SELECT SUM(cost) AS total_spend, user_id FROM orders
                                          GROUP BY user_id
                                          HAVING total_spend > 250
@@ -222,7 +226,7 @@ SELECT SUM(cost) AS total_spend, user_id FROM orders
 ex: Using Movie database
 * Write a query that totals up all ratings for the movie "Starman" (id = 6) in the reviews table and alias it.
 
-```
+```SQL
 SELECT SUM(rating) AS starman_total_ratings FROM reviews WHERE movie_id = 6;
 ```
 
@@ -236,12 +240,14 @@ SELECT AVG(<numeric column>) FROM <table> GROUP BY <another column>;
 
 ex:
 * Retrieve the average spend per customer and order from highest to lowest
-```
+
+```SQL
 SELECT AVG(cost) AS average, user_id FROM orders GROUP BY user_id ORDER BY average DESC;
 ```
 ex:
 * retrieve the average rating for "Starman"
-```
+
+```SQL
 SELECT AVG(rating) AS average_rating FROM reviews WHERE movie_id = 6;
 ```
 
@@ -258,7 +264,8 @@ SELECT MIN(<numeric column>) FROM <table> GROUP BY <other column>;
 ```
 ex: Using reviews table
 * Calculate the minimum and max of the starman ratings
-```
+
+```SQL
 SELECT MIN(rating) AS star_min, MAX(rating) AS star_max FROM reviews WHERE movie_id = 6;
 ```
 
@@ -280,7 +287,7 @@ SELECT ROUND(<decimal value>, <number of decimal places>) AS <alias>;
 ex: Using a products table
 * Write a query that returns the product name and price in Pounds Sterling (GBP). The current exchange rate is 1.4 USD to every 1 GBP. Alias the calculated price to price_gbp. Round to two decimal places.
 
-```
+```SQL
 SELECT name, ROUND(price / 1.4, 2) AS price_gbp FROM products;
 ```
 
@@ -290,7 +297,8 @@ SELECT name, ROUND(price / 1.4, 2) AS price_gbp FROM products;
 * Calculate the average rating given by a user across all movies
 * Calculate the average rating for each movie and round it to one decimal place
 * Calculate the minimum and maximum rating for every movie
-```
+
+```SQL
 SELECT COUNT(*) FROM movies;
 SELECT AVG(rating) AS avg_user_rating, username FROM reviews GROUP BY username;
 SELECT ROUND(AVG(rating),1) AS avg_movie_rating, username FROM reviews GROUP BY movie_id;
@@ -319,12 +327,12 @@ Various ways to work with current date and time in on different databases
 * Current date time: `NOW()`
 
 ex: Count the total number of orders that were ordered today and have the status of 'shipped'. Alias it to shipped_today.
-```
+```SQL
 SELECT COUNT(*) AS shipped_today FROM orders WHERE status = "shipped" AND ordered_on = DATE("NOW");
 ```
 
 ex: Count the total number of orders that were ordered yesterday and have the status of 'shipped'. Alias it to ordered_yesterday_and_shipped.
-```
+```SQL
 SELECT COUNT(*) AS ordered_yesterday_and_shipped FROM orders WHERE ordered_on = DATE("NOW", "-1 day") AND status = "shipped";
 ```
 
@@ -346,7 +354,7 @@ SELECT title, STRFTIME("%m/%Y", date_released) AS month_year_released FROM movie
 * Find all loans that are due back this week
 * Format dates in all the loans table in the UK format without the year. For example, April 1st is 01/04.
 
-```
+```SQL
 SELECT * FROM loans WHERE return_by < DATE("NOW") AND returned_on IS NULL;
 SELECT * FROM loans WHERE return_by BETWEEN DATE("NOW") AND DATE ("NOW", "+6 days") AND returned_on IS NULL;
 SELECT book_id, STRFTIME("%d/%m", loaned_on), STRFTIME("%d/%m", return_by), STRFTIME("%d/%m", returned_on) FROM loans;
