@@ -73,7 +73,7 @@ SELECT <columns>
 ```
 
 ex: Retrieve all Chevy models using make and model tables
-```
+```SQL
 SELECT mk.MakeName, md.ModelName 
   FROM make AS mk 
   INNER JOIN model AS md ON mk.MakeID = md.MakeID
@@ -97,7 +97,7 @@ SELECT <columns>
 
 ![Joins Chart](https://community.modeanalytics.com/images/intermediate/visual-join.png)
 
-```
+```SQL
 SELECT mk.MakeID, COUNT(md.ModelID) AS NumberOfModels FROM make AS mk
   LEFT OUTER JOIN model AS md ON.mk.MakeID = md.ModelID
   GROUP BY mk.MakeName;
@@ -111,7 +111,7 @@ SELECT mk.MakeID, COUNT(md.ModelID) AS NumberOfModels FROM make AS mk
  * Use a JOIN to find out which patrons haven't had any loans. Select their first name and email address.
  * Create a report that shows the title of the book, first and last name of the patron, email and all date fields of the loan.
 
-```
+```SQL
 SELECT patrons.first_name, patrons.email, loans.return_by, loans.returned_on
   	FROM patrons
   	INNER JOIN loans ON patrons.id = loans.patron_id
