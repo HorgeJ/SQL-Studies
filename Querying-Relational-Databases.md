@@ -137,7 +137,7 @@ SELECT books.title, patrons.first_name || " " || patrons.last_name AS full_name,
 * In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber, StreetAddress, City, State and ZipCode. Show the First and Last Name of each sales rep along with SaleAmount from both the SalesRep and Sale tables in one result set.
 * In a car database there is a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice. Show all Model names from the Model table along with VIN from the Car table. Make sure models that aren’t in the Car table still show in the results!
 * In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate. The database also has a SalesRep table with columns, SalesRepID, FirstName, LastName, SSN, PhoneNumber, StreetAddress, City, State and ZipCode. Show all SaleDate, SaleAmount, and SalesRep First and Last name from Sale and SalesRep. Make sure that all Sales appear in results even if there is no SalesRep associated to the sale.
-```
+```SQL
 SELECT m.ModelName, c.VIN, c.StickerPrice
 	FROM model AS m
   	INNER JOIN car AS c ON m.modelID = c.ModelID;
