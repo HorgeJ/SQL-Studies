@@ -296,6 +296,14 @@ SELECT <Columns>
 );
 ```
 
+```
+SELECT <Columns>
+FROM <table>
+<INNER | OUTER> JOIN
+(SELECT <columns> FROM Mtable> WHERE <Search criteria>) AS <Alias>
+ON <Join Criteria>
+```
+
 ex: All sales w/ 2015 Model
 ```SQL
 SELECT * FROM Sale 
@@ -319,3 +327,39 @@ SELECT name, email FROM users
     ON users.id = best_customers.user_id; 
 ```
 
+ex: Sum of all sales by rep and location
+```SQL
+ SELECT sr.LastName, Loc1.StLouisAmount, Loc2.ColumbiaAmount FROM SalesRep AS sr
+ 	LEFT OUTER JOIN (
+		SELECT SalesRepID, SUM(SaleAmount) AS StLouisAmount
+		FROM Sale AS s WHERE s.LocationID = 1
+	) AS Loc1 ON sr.SalesRepID = Loc1.SalesRepID
+	LEFT OUTER JOIN (
+		SELECT SalesRepID, SUM(SaleAmount) AS ColumbiaAmount
+		FROM Sale AS s WHERE s.locationID = 2
+		GROUP BY SalesRepID
+	) AS Loc2 ON sr.SalesRepID = Loc2.SalesRepID;
+```
+
+## SubQueries Exercises
+In a car database there is a Model table with columns, ModelID, MakeID and ModelName and a Car table with columns, CarID, ModelID, VIN, ModelYear and StickerPrice.
+
+* Use a subquery along with IN to list all the Model Names with a Sticker Price greater than $30000
+* Use a subquery along with IN to list all sales of cars with Sticker Price greater than $30000. Include all columns.
+* In a car database there is a Sale table with columns, SaleID, CarID, CustomerID, LocationID, SalesRepID, SaleAmount and SaleDate and a Customer table with columns, CustomerID, FirstName, LastName, Gender and SSN. Use a subquery along with IN to list all sales to female customers. (Gender = 'F') Select all columns.
+* Use a subquery as a derived table to show all sales to female ('F') customers. Select all columns from the Sale table only.
+
+```
+SELECT ModelName FROM Model 
+	WHERE ModelID IN (SELECT ModelID FROM Car WHERE StickerPrice > 30000);
+
+SELECT * FROM Sale 
+	WHERE CarID IN (SELECT CarID FROM Car WHERE StickerPrice > 30000);
+	
+SELECT * FROM Sale 
+	WHERE CustomerID IN (SELECT CustomerID FROM Customer WHERE Gender = "F");
+
+SELECT * FROM Sale 
+	INNER JOIN (SELECT CustomerID FROM Customer WHERE gender = "F") AS female_customers
+  ON female_customers.CustomerID = Sale.CustomerID;
+```
