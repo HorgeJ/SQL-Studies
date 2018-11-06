@@ -228,13 +228,6 @@ SELECT title FROM books_north
 	INTERSECT
 	SELECT title FROM books_south
 	ORDER BY title;
-	
-SELECT Name FROM Fruit
-	EXCEPT
-	SELECT Name FROM Vegetable
-	ORDER BY Name;
-	
-
 ```
 
 * There are two tables Fruit and Vegetable table. The Fruit table has a FruitID and a Name column and the Vegetable table has a VegetableID and Name column. Create a distinct result set of fruit and vegetable names.
