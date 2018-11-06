@@ -159,3 +159,119 @@ SELECT Sale.SaleDate, Sale.SaleAmount, SalesRep.FirstName, SalesRep.LastName
 	FROM Sale
   	LEFT OUTER JOIN SalesRep ON Sale.SalesRepID = SalesRep.SalesRepID;
 ```
+
+## SET Operations
+
+#### UNION
+The UNION operator is used to combine the result-set of two or more SELECT statements.
+The UNION operator selects only distinct values by default. 
+* Each SELECT statement within UNION must have the same number of columns
+* The columns must also have similar data types
+* The columns in each SELECT statement must also be in the same order
+
+```
+SELECT <column name(s)> FROM <table1>
+UNION
+SELECT <column name(s)> FROM <table2> 
+```
+
+#### UNION ALL
+Like UNION but allows duplicates
+
+```
+SELECT <column name(s)> FROM <table1>
+UNION ALL
+SELECT <column name(s)> FROM <table2> 
+```
+
+#### INTERECT
+The SQL INTERSECT operator is used to return the results of 2 or more SELECT statements. However, it only returns the rows selected by all queries or data sets. If a record exists in one query and not in the other, it will be omitted from the INTERSECT results.
+
+```
+SELECT <column(s) FROM <table1>
+WHERE <condition>
+INTERSECT
+SELECT <column(s) FROM <table2>
+WHERE <condition>
+```
+
+#### EXCEPT
+The SQL EXCEPT clause/operator is used to combine two SELECT statements and returns rows from the first SELECT statement that are not returned by the second SELECT statement. This means EXCEPT returns only rows, which are not available in the second SELECT statement.
+
+```
+SELECT <column(s) FROM <table1>
+WHERE <condition>
+EXCEPT
+SELECT <column(s) FROM <table2>
+WHERE <condition>
+```
+
+## SET Operation Exercises | Using Library DB
+
+* Create a list of all books in both north and south locations
+* Create a list of unique books. Books that are in the north or south location, but not in both locations.
+* Create a list of duplicate books. Book titles that exist in BOTH north AND south locations
+* 
+
+```SQL
+SELECT * FROM books_north
+	UNION ALL
+	SELECT * FROM books_south
+	ORDER BY title;
+	
+SELECT title FROM books_north
+	UNION
+	SELECT title FROM books_south
+	ORDER BY title;
+	
+SELECT title FROM books_north
+	INTERSECT
+	SELECT title FROM books_south
+	ORDER BY title;
+	
+SELECT Name FROM Fruit
+	EXCEPT
+	SELECT Name FROM Vegetable
+	ORDER BY Name;
+	
+
+```
+
+* There are two tables Fruit and Vegetable table. The Fruit table has a FruitID and a Name column and the Vegetable table has a VegetableID and Name column. Create a distinct result set of fruit and vegetable names.
+* Create a list of all fruits and vegetables starting with the letters A through K . In other words all fruit and vegetables that don't start with the letter L to Z.
+* Create a list of fruits and vegetables that includes any potential duplicate values. Ensure that it is in alphabetical order so that the duplicates are next to each other!
+* Create an alphabetical list of produce that is considered both a fruit and a vegetable.
+* Create an alphabetical list of fruits that are NOT considered a vegetable.
+* Create an alphabetical list of vegetables that are NOT considered a fruit.
+
+```SQL
+SELECT Name FROM Fruit 
+	UNION 
+	SELECT Name FROM Vegetable;
+
+SELECT Name FROM Fruit 
+	WHERE Name < "L" 
+	UNION 
+	SELECT Name FROM Vegetable 
+	WHERE Name < "L";
+	
+SELECT Name FROM Fruit
+	UNION ALL
+	SELECT Name FROM Vegetable
+	ORDER BY Name;
+	
+SELECT Name FROM Fruit
+	INTERSECT 
+  	SELECT Name FROM Vegetable
+  	ORDER BY Name;
+	
+SELECT Name FROM Fruit
+	INTERSECT 
+  	SELECT Name FROM Vegetable
+  	ORDER BY Name;
+	
+SELECT Name FROM Vegetable
+	INTERSECT 
+  	SELECT Name FROM Fruit
+  	ORDER BY Name;
+```
