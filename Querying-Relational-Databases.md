@@ -268,3 +268,54 @@ SELECT Name FROM Vegetable
   	SELECT Name FROM Fruit
   	ORDER BY Name;
 ```
+
+## Subquieries (Derived Table)
+ Subquery or Inner query or a Nested query is a query within another SQL query and embedded within the WHERE clause.
+
+A subquery is used to return data that will be used in the main query as a condition to further restrict the data to be retrieved.
+
+Subqueries can be used with the SELECT, INSERT, UPDATE, and DELETE statements along with the operators like =, <, >, >=, <=, IN, BETWEEN, etc.
+
+There are a few rules that subqueries must follow:
+
+* Subqueries must be enclosed within parentheses.
+* A subquery can have only one column in the SELECT clause, unless multiple columns are in the main query for the subquery to compare its selected columns.
+* An ORDER BY command cannot be used in a subquery, although the main query can use an ORDER BY. The GROUP BY command can be used to perform the same function as the ORDER BY in a subquery.
+* Subqueries that return more than one row can only be used with multiple value operators such as the IN operator.
+* The SELECT list cannot include any references to values that evaluate to a BLOB, ARRAY, CLOB, or NCLOB.
+* A subquery cannot be immediately enclosed in a set function.
+* The BETWEEN operator cannot be used with a subquery. However, the BETWEEN operator can be used within the subquery.
+
+```
+SELECT <Columns>
+ FROM <Table1>
+ WHERE Column1 IN (
+  SELECT Column1
+  FROM <Table2>
+  WHERE <search criteria>
+);
+```
+
+ex: All sales w/ 2015 Model
+```SQL
+SELECT * FROM Sale 
+	WHERE CarID IN (
+	SELECT CarID FROM Car WHERE ModelYear = 2015
+	);
+	
+// OR w/ Derived Table
+
+SELECT * FROM Sale AS s
+	INNER JOIN (SELECT CarID FROM Car WHERE ModelYear = 2015) AS t
+	ON s.CarID = t.CarID;
+```
+ex: Get a list of user's names and emails for users who have spent over 100 dollars in a single transaction.
+```SQL
+SELECT name, email FROM users 
+    WHERE id IN (SELECT DISTINCT(user_id) FROM sales WHERE saleAmount > 100);
+    // OR w/ Derived Table
+ SELECT name, email FROM users
+    INNER JOIN (SELECT DISTINCT(user_id) FROM sales WHERE saleAmount > 100) AS best_customers
+    ON users.id = best_customers.user_id; 
+```
+
