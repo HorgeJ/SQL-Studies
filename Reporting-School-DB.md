@@ -102,3 +102,13 @@ SELECT ID, FIRST_NAME, LAST_NAME FROM STUDENTS
 WHERE LAST_NAME LIKE 'A%';
 ```
 
+* What's the total capacity of the school?
+```SQL
+SELECT SUM(CAPACITY)AS School_Capacity FROM ROOMS;
+```
+
+* Which room has the largest capacity?
+```SQL 
+SELECT SUM(CAPACITY)AS School_Capacity FROM ROOMS;
+```
+
