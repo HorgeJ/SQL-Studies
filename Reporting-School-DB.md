@@ -109,6 +109,6 @@ SELECT SUM(CAPACITY)AS School_Capacity FROM ROOMS;
 
 * Which room has the largest capacity?
 ```SQL 
-SELECT SUM(CAPACITY)AS School_Capacity FROM ROOMS;
+SELECT ID, MAX(CAPACITY) AS School_Capacity FROM ROOMS;
 ```
 
