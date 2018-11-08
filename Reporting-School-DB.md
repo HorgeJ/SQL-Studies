@@ -2,7 +2,7 @@
 
 ### Reports will be made by querying a middle schools database with 7 tables for Students table, Teachers table, Subjects table, Rooms table, Periods table, Classes table, Schedule table.
 
-STUDENTS TABLE
+**STUDENTS TABLE
 ```
 CREATE TABLE STUDENTS (
     ID INT PRIMARY KEY,
@@ -12,7 +12,7 @@ CREATE TABLE STUDENTS (
 )
 ```
 
-TEACHERS TABLE
+**TEACHERS TABLE
 ```
 CREATE TABLE TEACHERS (
     ID INT PRIMARY KEY,
@@ -21,7 +21,7 @@ CREATE TABLE TEACHERS (
 )
 ```
 
-SUBJECTS TABLE
+**SUBJECTS TABLE
 ```
 CREATE TABLE SUBJECTS (
     ID INT PRIMARY KEY,
@@ -31,7 +31,7 @@ CREATE TABLE SUBJECTS (
 )
 ```
 
-ROOMS TABLE
+**ROOMS TABLE
 ```
 CREATE TABLE ROOMS (
     ID INT PRIMARY KEY,
@@ -39,7 +39,7 @@ CREATE TABLE ROOMS (
 )
 ```
 
-PERIODS TABLE
+**PERIODS TABLE
 ```
 CREATE TABLE PERIODS (
     ID INT PRIMARY KEY,
@@ -48,7 +48,7 @@ CREATE TABLE PERIODS (
 )
 ```
 
-CLASSES TABLE
+**CLASSES TABLE
 ```
 CREATE TABLE TEACHERS (
     ID INT PRIMARY KEY,
@@ -63,7 +63,7 @@ CREATE TABLE TEACHERS (
 )
 ```
 
-SCHEDULE TABLE
+**SCHEDULE TABLE
 ```
 CREATE TABLE SCHEDULE (
     ID INT PRIMARY KEY,
@@ -72,3 +72,33 @@ CREATE TABLE SCHEDULE (
     FOREIGN KEY(STUDENT_ID) REFRENCES STUDENTS(ID)
 )
 ```
+
+* Which subjects are taught at the middle school?
+```SQL
+SELECT * FROM SUBJECTS;
+```
+
+* How many students do they have at the middle school?
+```SQL
+SELECT COUNT(*) FROM STUDENTS;
+```
+
+* What's Yvette Levy's student ID number?
+```SQL
+SELECT ID FROM STUDENTS 
+WHERE FIRST_NAME = "Yvette" 
+AND LAST_NAME = "Levy";
+```
+
+* Generate a list of teachers sorted alphabetically by last name.
+```SQL
+SELECT FIRST_NAME, LAST_NAME FROM TEACHERS
+ORDER BY LAST_NAME ASC;
+```
+
+* Which students have last names starting with 'A'?
+```SQL
+SELECT ID, FIRST_NAME, LAST_NAME FROM STUDENTS
+WHERE LAST_NAME LIKE 'A%';
+```
+
