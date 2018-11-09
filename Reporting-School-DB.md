@@ -1,6 +1,6 @@
 # SQL Reporting Examples
 
-### Reports will be made by querying a middle schools database with 7 tables for Students table, Teachers table, Subjects table, Rooms table, Periods table, Classes table, Schedule table.
+### Reports will be made by querying a middle schools database with 7 tables. Students table, Teachers table, Subjects table, Rooms table, Periods table, Classes table, Schedule table.
 
 **STUDENTS TABLE
 ```
