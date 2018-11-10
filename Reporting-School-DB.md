@@ -164,3 +164,10 @@ JOIN SUBJECTS ON CLASSES.SUBJECT_ID = SUBJECTS.ID
 WHERE SUBJECTS.NAME = "Physical Education" AND CLASSES.PERIOD_ID = 1;
 ```
 
+* Generate a list of students with last names from A to M.
+```SQL
+SELECT LAST_NAME FROM STUDENTS
+WHERE LAST_NAME < 'N%'
+ORDER BY LAST_NAME;
+```
+
