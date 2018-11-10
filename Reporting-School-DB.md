@@ -171,3 +171,9 @@ WHERE LAST_NAME < 'N%'
 ORDER BY LAST_NAME;
 ```
 
+* How many students are in each grade?
+```SQL
+SELECT GRADE, COUNT(*) FROM STUDENTS
+GROUP BY GRADE;
+```
+
