@@ -34,3 +34,13 @@ This file contains my notes for manipulating text and numerical results with fun
 * TEXT CASE functions
 * EXCERPTS function
 * REPLACE function
+
+#### Numeric Manipulation
+* COUNT function
+* SUM function
+* AVG function
+* MIN function
+* MAX function
+* Arithmetic on numbers
+* DATE functions
+* DATE formatting
