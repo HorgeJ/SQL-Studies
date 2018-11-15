@@ -21,3 +21,16 @@ This file contains my notes of the Basics of SQL.
 * BETWEEN operator
 * LIKE keyword
 * NULL values
+
+### [SQL-Reporting](https://github.com/HorgeJ/SQL-Studies/blob/master/SQL-Reporting.md)
+This file contains my notes for manipulating text and numerical results with functions
+
+#### Text Manipulation 
+* ORDER BY keyword
+* LIMIT keyword
+* OFFSET keyword
+* CONCAT function
+* LENGTH function
+* TEXT CASE functions
+* EXCERPTS function
+* REPLACE function
