@@ -28,3 +28,5 @@ SHOW DATABASES
 ```
 
 ### Tables
+SQL database table. The foundation of every Relational Database Management System is a database object called table. Every database consists of one or more tables, which store the database’s data/information. Each table has its own unique name and consists of columns and rows.
+
