@@ -20,3 +20,11 @@ Drop a database with specified name permanently. All physical file associated wi
 ```
 DROP DATABASE <database_name>;
 ```
+
+### Show Databases
+Show databases
+```
+SHOW DATABASES
+```
+
+### Tables
