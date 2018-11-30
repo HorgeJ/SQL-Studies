@@ -27,6 +27,24 @@ Show databases
 SHOW DATABASES
 ```
 
-### Tables
+## Tables
 SQL database table. The foundation of every Relational Database Management System is a database object called table. Every database consists of one or more tables, which store the database’s data/information. Each table has its own unique name and consists of columns and rows.
 
+### Creating Tables
+Usually name tables with plural spelling
+
+```
+CREATE TABLE tablename
+(
+  column_name data_type,
+  column_name data_type
+);
+```
+ex:
+```SQL
+CREATE TABLE dogs
+(
+  name VARCHAR(100),
+  age int
+);
+```
