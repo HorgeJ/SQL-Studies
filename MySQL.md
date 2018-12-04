@@ -48,3 +48,17 @@ CREATE TABLE dogs
   age int
 );
 ```
+
+### Show Tables
+SHOW TABLES lists the non-TEMPORARY tables in a given database. You can also get this list using the mysqlshow db_name command. The LIKE clause, if present, indicates which table names to match.
+
+
+```
+SHOW TABLES
+```
+
+```
+SHOW COLUMNS FROM <table name>;
+```
+
+
