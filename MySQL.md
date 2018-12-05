@@ -61,4 +61,11 @@ SHOW TABLES
 SHOW COLUMNS FROM <table name>;
 ```
 
+### Dropping Tables (Deleting)
+In MySQL, DROP TABLE command removes one or more tables from an existing database. 
+
+```
+DROP TABLE <table name>;
+```
+
 
