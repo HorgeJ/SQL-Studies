@@ -81,3 +81,14 @@ ex:
 INSERT INTO cats(name, age)
 VALUES ('Jetson', 3);
 ```
+
+### Multiple INSERT
+We can use a comma spereated list to insert multiple rows into table.
+
+ex:
+```SQL
+INSERT INTO cats(name, age)
+VALUES('Cat', 10),
+      ('Charlie', 3),
+      ('Murph', 6);
+```
