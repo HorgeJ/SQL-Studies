@@ -84,6 +84,12 @@ VALUES ('Jetson', 3);
 
 ### Multiple INSERT
 We can use a comma spereated list to insert multiple rows into table.
+```
+INSERT INTO table_name (<column name>, <column name>) 
+VALUES      (value, value), 
+            (value, value), 
+            (value, value);
+```
 
 ex:
 ```SQL
