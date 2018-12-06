@@ -68,4 +68,16 @@ In MySQL, DROP TABLE command removes one or more tables from an existing databas
 DROP TABLE <table name>;
 ```
 
+### INSERT INTO
+To insert data into a MySQL table, you would need to use the SQL INSERT INTO command. You can insert data into the MySQL table by using the mysql> prompt or by using any script like PHP.
+```
+INSERT INTO table_name ( field1, field2,...fieldN )
+   VALUES
+   ( value1, value2,...valueN );
+```
 
+ex:
+```SQL
+INSERT INTO cats(name, age)
+VALUES ('Jetson', 3);
+```
