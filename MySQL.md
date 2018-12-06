@@ -91,10 +91,19 @@ VALUES      (value, value),
             (value, value);
 ```
 
-ex:
+ex: 
 ```SQL
-INSERT INTO cats(name, age)
-VALUES('Cat', 10),
-      ('Charlie', 3),
-      ('Murph', 6);
+CREATE TABLE people(
+  first_name VARCHAR(20),
+  last_name VARCHAR(20),
+  age int
+);
+
+INSERT INTO people(first_name, last_name, age)
+VALUES('Tina', 'Belcher', 13);
+
+INSERT INTO people(first_name, last_name, age)
+VALUES('Linda', 'Belcher', 45),
+      ('Phillip', 'Frond'),
+      ('Calvin', 'Fischoeder', 70);
 ```
