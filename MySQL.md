@@ -107,3 +107,17 @@ VALUES('Linda', 'Belcher', 45),
       ('Phillip', 'Frond'),
       ('Calvin', 'Fischoeder', 70);
 ```
+
+### NOT NULL
+When storing data, when a value isnt specified, a cell will be populated with a NULL value, which is NOT 0 but a value with no value? 
+
+We can specify in the table creation to not allow NULL values for specific columns.
+
+ex:
+```SQL
+CREATE TABLE cats (
+  name VARCHAR(20) NOT NULL,
+  age INT NOT NULL
+);
+```
+In this example the inlcusion of NOT NULL atfer the datatype specifies that an actual value must be provided when inserting a row.
