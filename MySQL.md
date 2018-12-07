@@ -134,3 +134,5 @@ CREATE TABLE cats(
   age INT DEFAULT 99
 );
 ```
+
+### Primary Keys
