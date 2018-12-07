@@ -121,3 +121,16 @@ CREATE TABLE cats (
 );
 ```
 In this example the inlcusion of NOT NULL atfer the datatype specifies that an actual value must be provided when inserting a row.
+
+Creating a row without specifying values, a default value will be inserted instead of NULL.
+
+### DEFAULT 
+We can specify default values to be used in the case that one is not provided upon creation of row.
+
+ex:
+```SQL
+CREATE TABLE cats(
+  name VARCHAR(20) DEFAULT 'unnamed',
+  age INT DEFAULT 99
+);
+```
