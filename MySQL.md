@@ -147,3 +147,24 @@ CREATE TABLE unique_cats (
     PRIMARY KEY (cat_id)
 );
 ```
+
+Define an Employees table, with the following fields:\
+* id - number(automatically increments), mandatory, primary key
+* last_name - text, mandatory
+* first_name - text, mandatory 
+* middle_name - text, not mandatory 
+* age - number mandatory 
+* current_status - text, mandatory, defaults to 'employed'
+
+```SQL
+CREATE TABLE Employees (
+  id INT NOT NULL AUTO_INCERMENT,
+  last_name VARCHAR(25) NOT NULL,
+  first_name VARCHAR(25) NOT NULL,
+  middle_name VARCHAR(25),
+  age INT NOT NULL,
+  current_status VARVCHAR(25) NOT NULL DEFAULT 'employed',
+  PRIMARY KEY(id)
+);
+```
+
