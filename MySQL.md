@@ -138,3 +138,12 @@ CREATE TABLE cats(
 ### Primary Keys
 A primary key is a column or a set of columns that uniquely identifies each row in the table. You must follow the rules below when you define a primary key for a table: ... Because MySQL works faster with integers, the data type of the primary key column should be the integer e.g., INT, BIGINT.You can choose a smaller integer type: TINYINT, SMALLINT, etc.
 
+ex: Define a table with a PRIMARY KEY constraint and AUTO INCREMENT
+```sql
+CREATE TABLE unique_cats (
+    cat_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    PRIMARY KEY (cat_id)
+);
+```
