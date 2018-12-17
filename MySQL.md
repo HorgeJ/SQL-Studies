@@ -198,3 +198,15 @@ VALUES ('Ringo', 'Tabby', 4),
 ```
 
 ### SELECT FROM
+The SELECT statement is used to select data from a database.
+
+The data returned is stored in a result table, called the result-set.
+
+***
+SELECT column1, column2, ...
+FROM table_name; 
+***
+
+***SQL
+SELECT * FROM table_name; 
+***
