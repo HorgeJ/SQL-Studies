@@ -242,3 +242,39 @@ FROM table_name;
 SELECT CustomerName AS Customer, ContactName AS [Contact Person]
 FROM Customers; 
 ```
+
+### UPDATE Statement
+The UPDATE statement is used to modify the existing records in a table.
+
+```
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition; 
+```
+
+```SQL
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+```
+
+Challenge Q: UPDATE both Tabbys' ages to be 12:
+```
+UPDATE cats
+SET Age = '12'
+WHERE Breed = "Tabby";
+```
+
+### Delete (Destroy)
+The DELETE statement is used to delete existing records in a table.
+
+**Be careful when deleting records in a table! Notice the WHERE clause in the DELETE statement. The WHERE clause specifies which record(s) should be deleted. If you omit the WHERE clause, all records in the table will be deleted!
+
+```
+DELETE FROM table_name 
+WHERE condition;
+```
+
+```SQL
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+```
