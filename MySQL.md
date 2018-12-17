@@ -202,11 +202,27 @@ The SELECT statement is used to select data from a database.
 
 The data returned is stored in a result table, called the result-set.
 
-***
+```
 SELECT column1, column2, ...
 FROM table_name; 
-***
+```
 
-***SQL
+```SQL
 SELECT * FROM table_name; 
-***
+```
+
+### WHERE clause
+The WHERE clause is used to filter records.
+The WHERE clause is used to extract only those records that fulfill a specified condition.
+
+```
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition; 
+```
+
+```
+SELECT * FROM Customers
+WHERE Country='Guatemala'; 
+```
+
