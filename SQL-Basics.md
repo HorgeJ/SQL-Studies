@@ -113,7 +113,7 @@ SELECT <columns> FROM <table> WHERE <column> IN (<value 1>, <value 2>, ...);
 ex: `SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');`
 this statement retreives all customers where the Country value is equal to Germany, France and UK
 
-ex: `SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK');`
+ex: `SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'France', 'UK');`
 this statement retreives all customers where the Country value is NOT equal to Germany, France and UK
 
 ## The **WHERE** Keyword | Searching Within a Range
