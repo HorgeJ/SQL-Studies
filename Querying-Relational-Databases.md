@@ -79,7 +79,7 @@ SELECT mk.MakeName, md.ModelName
   INNER JOIN model AS md ON mk.MakeID = md.MakeID
   WHERE mk.MakeName = "Chevy";
 ```
-retrieves the MakeName from the make table, ModelName FROM the make table aliased as mk and model table aliased as md when the mk.MakeID from Make table matches the md.MakeID from the Model table amd returns only the ones where NameName = "chevy"
+retrieves the MakeName from the make table, ModelName FROM the make table aliased as mk and model table aliased as md when the mk.MakeID from Make table matches the md.MakeID from the Model table amd returns only the ones where MakeName = "chevy"
 
 ### Outer Join
 An outer join, unmatched rows in one or both tables can be returned. There are a few types of outer joins:
