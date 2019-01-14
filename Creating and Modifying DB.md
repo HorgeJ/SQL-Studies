@@ -10,12 +10,25 @@ Lets create a concert table to store all the information about the concerts.
 * CITY - VARCHAR()
 * STATE - VARCHAR()
 * VENUE - VARCHAR()
+
 ```sql
 CREATE TABLE CONCERTS(
-  ID SMALLINT,
+  ID SMALLINT PRIMARY KEY,
   DATE DATE,
   CITY VARCHAR(50),
   STATE VARCHAR(50),
   VENUE VARCHAR(50)
-  );
+ );
 ```
+
+### Ticket Holders Table
+
+```sql
+CRATE TABLE TICKET_HOLDERS(
+  ID INT PRIMARY KEY,
+  FIRST_NAME VARCHAR(50),
+  LAST_NAME VARCHAR(50),
+  EMAIL VARCHAR(50)
+);
+```
+
