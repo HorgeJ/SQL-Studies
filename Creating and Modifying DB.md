@@ -32,3 +32,17 @@ CREATE TABLE TICKET_HOLDERS(
 );
 ```
 
+### Tickets Table
+Foreign Keys: A FOREIGN KEY is a key used to link two tables together and is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+
+The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
+
+The **FOREIGN KEY constraint** is used to prevent actions that would destroy links between tables and also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.
+
+```sql
+CREATE TABLE TICKETS(
+  ID INT PRIMARY KEY AUTOINCREMENT,
+  CONCERT_ID SMALLINT REFRENCES CONCERTS(ID),
+  TICKET_HOLDER_ID INT REFRENCES TICKET_HOLDERS(ID)
+);
+```
